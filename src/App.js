@@ -6,12 +6,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ItemListContainer from './Components/ItemListContainer';
 
+
+
+
+
 function App() {
   return (
     <div className="App">
       <Navbar2 />
       
     <ItemListContainer />
+    
 
       <hr></hr>
 
