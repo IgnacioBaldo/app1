@@ -11,7 +11,7 @@ const ItemCounter = ({stock}) => {
     if (counter >= stock) return;
     setItemCounter(counter + 1);
   };
-
+  return(
   <>
     <div>
         <hr></hr>
@@ -20,6 +20,7 @@ const ItemCounter = ({stock}) => {
       <button onClick={plusItemCounter}>+</button>
     </div>
   </>
+  )
 };
 
 export default ItemCounter;
