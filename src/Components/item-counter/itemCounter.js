@@ -1,7 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
-const ItemCounter = ({stock}) => {
-  const [counter, setItemCounter] = useState(0)
+const ItemCounter = ({stock, setStockSelected}) => {
+  const [counter, setItemCounter] = useState(0);
+
+
+  useEffect (() => {
+    setStockSelected(counter)
+  }, [counter])
 
   const minusItemCounter = () => {
     if (counter <= 0) return;
