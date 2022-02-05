@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { productsAPI } from './helpers/promises';
 import { products } from './data/products';
 import Item from './Item';
