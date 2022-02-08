@@ -1,26 +1,22 @@
 import { useState } from "react";
-import ItemCounter from "./item-counter/itemCounter";
+import { Link } from "react-router-dom";
+import itemCounter from "./item-counter/itemCounter";
 
+const Item = ({ id, name, description, image, stock = 20 }) => {
+  const [sotckSelected, setSotckSelected] = useState(0);
 
-
-const Item = ({id, name, description, stock, setSelectedItem}) =>{
-    const [stockSelected, setStockSelected] = useState (0);
-
-    const selectedItem = () =>
-        setSelectedItem ({id, name, description, stock: stockSelected});
-
-    return (
-        <>
-        <div>
-            <h2>Producto: {name}</h2>
-            <h4>Descripcion: {description}</h4>
-            <ItemCounter stock={stock} setStockSelected={setStockSelected} />
-            <button onClick={selectedItem}>Seleccionar Producto</button>
-
-        </div>
-
-        </>
-    );
+  return (
+    <>
+      <div>
+        <h2>Nombre del producto: {name}</h2>
+        <h2>Descripción del producto: {description}</h2>
+        <img src={image} alt="Imagen" />
+        <itemCounter stock={stock} setSotckSelected={setSotckSelected} />
+        <Link to={`/item/${id}`}>Seleccionar producto</Link>
+      </div>
+      <hr />
+    </>
+  );
 };
 
 export default Item;
