@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useProducts from "../Hooks/useProducts";
+import { CartContext } from "../Context/CartContext";
+import ItemCounter from "./item-counter/itemCounter";
 
 
 const ItemDetailContainer = () => {
   const { products } = useProducts();
   const { id } = useParams();
+  const { addItem } = useContext(CartContext);
 
   const [selectedItem, setSelectedItem] = useState(null);
+  const [quantity, setQuantity] = useState(0);
+  const [userName, setUserName] = useState("")
 
   useEffect(() => {
     if (products.length > 0) {
@@ -15,6 +20,15 @@ const ItemDetailContainer = () => {
       setSelectedItem(selectedProduct);
     }
   }, [products]);
+
+  const handleAddToCart = () => {
+    addItem({
+      item: selectedItem,
+      quantity,
+    });
+  };
+
+  
 
   return (
     <div>
@@ -26,6 +40,13 @@ const ItemDetailContainer = () => {
       <h4>{selectedItem && selectedItem.description}</h4>
       <p>ID: {selectedItem && selectedItem.id}</p>
       <p>STOCK seleccionado: {selectedItem && selectedItem.stock}</p>
+      <ItemCounter
+        stock={selectedItem?.stock || 10}
+        setSotckSelected={setQuantity}
+        />
+        <button onClick={handleAddToCart}>Add </button>
+     
+
     </div>
   );
 };

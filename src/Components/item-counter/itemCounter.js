@@ -1,31 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 
-const ItemCounter = ({stock, setStockSelected}) => {
-  const [counter, setItemCounter] = useState(0);
+const ItemCounter = ({ stock, setSotckSelected }) => {
+  const [counter, setCounter] = useState(0);
 
+  useEffect(() => {
+    setSotckSelected(counter);
+  }, [counter]);
 
-  useEffect (() => {
-    setStockSelected(counter)
-  }, [counter])
-
-  const minusItemCounter = () => {
+  const minusCounter = () => {
     if (counter <= 0) return;
-    setItemCounter(counter - 1);
+    setCounter(counter - 1);
   };
-  const plusItemCounter = () => {
+
+  const plusCounter = () => {
     if (counter >= stock) return;
-    setItemCounter(counter + 1);
+    setCounter(counter + 1);
   };
-  return(
-  <>
-    <div>
-        <hr></hr>
-      <button onClick={minusItemCounter}>-</button>
-      <spam>{counter}</spam>
-      <button onClick={plusItemCounter}>+</button>
-    </div>
-  </>
-  )
+
+  return (
+    <>
+      <div>
+        <button onClick={minusCounter}>-</button>
+        <span>{counter}</span>
+        <button onClick={plusCounter}>+</button>
+      </div>
+    </>
+  );
 };
 
 export default ItemCounter;
