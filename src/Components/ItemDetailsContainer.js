@@ -9,6 +9,7 @@ const ItemDetailContainer = () => {
   const { products } = useProducts();
   const { id } = useParams();
   const { addItem } = useContext(CartContext);
+  const { removeItem } = useContext(CartContext);
 
   const [selectedItem, setSelectedItem] = useState(null);
   const [quantity, setQuantity] = useState(0);
@@ -23,6 +24,13 @@ const ItemDetailContainer = () => {
 
   const handleAddToCart = () => {
     addItem({
+      item: selectedItem,
+      quantity,
+    });
+  };
+
+  const handleRemoveToCart = () => {
+    removeItem({
       item: selectedItem,
       quantity,
     });
@@ -44,7 +52,8 @@ const ItemDetailContainer = () => {
         stock={selectedItem?.stock || 10}
         setSotckSelected={setQuantity}
         />
-        <button onClick={handleAddToCart}>Add </button>
+        <button onClick={handleAddToCart}>Add to Cart </button>
+        <button onClick={handleRemoveToCart}>Remove </button>
      
 
     </div>

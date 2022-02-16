@@ -9,12 +9,17 @@ export const CartProvider = ({ children }) => {
     if (items.some(({ item }) => item.id === currentItem.item.id)) return;
     setItems([...items, currentItem]);
   };
+  const removeItem = (currentItem) => {
+    if (items.some(({ item }) => item.id === currentItem.item.id)) return;
+    setItems([...items, currentItem]);
+  };
 
   return (
     <CartContext.Provider
       value={{
         items,
         addItem,
+        removeItem,
       }}
     >
       {children}
