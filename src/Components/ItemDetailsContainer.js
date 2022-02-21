@@ -10,6 +10,7 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
   const { addItem } = useContext(CartContext);
   const { removeItem } = useContext(CartContext);
+  const { cleanerAll } = useContext(CartContext);
 
   const [selectedItem, setSelectedItem] = useState(null);
   const [quantity, setQuantity] = useState(0);
@@ -35,6 +36,12 @@ const ItemDetailContainer = () => {
       quantity,
     });
   };
+  const handleCleanerToCart = () => {
+    cleanerAll({
+      item: selectedItem,
+      quantity,
+    });
+  };
 
   
 
@@ -54,6 +61,7 @@ const ItemDetailContainer = () => {
         />
         <button onClick={handleAddToCart}>Add to Cart </button>
         <button onClick={handleRemoveToCart}>Remove </button>
+        <button onClick={handleCleanerToCart}>Cleaner </button>
      
 
     </div>

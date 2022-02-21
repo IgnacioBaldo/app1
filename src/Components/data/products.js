@@ -6,6 +6,7 @@ export const products = [
         description: "Ready for anything. The Herschel Pop Quiz™ backpack keeps you organized on daily commutes with pockets made for laptops, sunglasses, pens and keys.",
         stock: 10,
         category:"Herschel",
+        price: "$$",
     },
     {
         id: "2",
@@ -14,6 +15,7 @@ export const products = [
         description: "Our signature backpack. The Herschel Little America™ is an iconic mountaineering backpack made modern for everyday journeys.",
         stock: 10,
         category:"Herschel",
+        price: "$$",
     },
     {
         id: "3",
@@ -22,6 +24,7 @@ export const products = [
         description: "The classic Kånken becomes your computer bag. The padded pocket protects the computer from jostling. Zipper opens the entire main compartment. Padded shoulder straps and a carrying handle on top.",
         stock: 10,
         category:"fjallraven",
+        price: "$$",
     },
     {
         id: "4",
@@ -30,5 +33,6 @@ export const products = [
         description: "Light backpack in recycled nylon, perfect for daytrips and travelling.",
         stock: 10,
         category:"fjallraven",
+        price: "$$",
     },
 ];

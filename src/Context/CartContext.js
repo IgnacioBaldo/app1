@@ -9,9 +9,11 @@ export const CartProvider = ({ children }) => {
     if (items.some(({ item }) => item.id === currentItem.item.id)) return;
     setItems([...items, currentItem]);
   };
-  const removeItem = (currentItem) => {
-    if (items.some(({ item }) => item.id === currentItem.item.id)) return;
-    setItems([...items, currentItem]);
+   const removeItem = (ItemId) => { 
+       setItems(items.filter((item) => item.item.id != ItemId)); 
+  };
+   const cleanerAll = () => {    
+     setItems([]);  
   };
 
   return (
@@ -20,6 +22,7 @@ export const CartProvider = ({ children }) => {
         items,
         addItem,
         removeItem,
+        cleanerAll,
       }}
     >
       {children}
